@@ -54,6 +54,7 @@ public class Musics implements Serializable {
     private String artist;
 
     public Musics() {
+        System.out.println("Musics class");
     }
 
     public Musics(Long id) {
@@ -75,6 +76,7 @@ public class Musics implements Serializable {
     }*/
 
     public Long getId() {
+        System.out.println("++++++++++++++++++++++++++++++++++++++++++: "+id);
         return id;
     }
 
