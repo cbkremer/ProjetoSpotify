@@ -60,14 +60,13 @@ public class Musics implements Serializable {
         this.id = id;
     }
 
-    /*public Musics(Long id, String description, String name, String address) {
+    public Musics(Long id, String name, String artist) {
         this.id = id;
-        this.description = description;
         this.name = name;
-        this.address = address;
+        this.artist = artist;
     }
 
-    public String getDescription() {
+    /*public String getDescription() {
         return description;
     }
 
