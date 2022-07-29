@@ -10,15 +10,19 @@ import controller.util.JsfUtil;
 import controller.util.JsfUtil.PersistAction;
 import dao.Musics;
 
-import java.util.logging.Logger;
-import javax.ejb.EJBException;
 import java.io.Serializable;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.ejb.EJB;
-import javax.enterprise.context.SessionScoped;
+import javax.ejb.EJBException;
 import javax.inject.Named;
+import javax.enterprise.context.SessionScoped;
+import javax.faces.component.UIComponent;
+import javax.faces.context.FacesContext;
+import javax.faces.convert.Converter;
+import javax.faces.convert.FacesConverter;
 
 /**
  *
@@ -112,4 +116,50 @@ public class MusicsController implements Serializable {
             }
         }
     }
+    public Musics getMusics(java.lang.Long id){
+        return getFacade().find(id);
+    }
+    public List<Musics> getItemsAvailableSelectMany(){
+        return getFacade().findAll();
+    }
+    public List<Musics> getItemsAvailableSelectOne(){
+        return getFacade().findAll();
+    }
+    
+    @FacesConverter(forClass = Musics.class)
+    public static class MusicsControllerConverter implements Converter{
+        @Override
+        public Object getAsObject(FacesContext facesContext, UIComponent component, String value) {
+            if (value == null || value.length() == 0) {
+                return null;
+            }
+            MusicsController controller = (MusicsController) facesContext.getApplication().getELResolver().
+                    getValue(facesContext.getELContext(), null, "musicsController");
+            return controller.getMusics(getKey(value));
+        }
+        java.lang.Long getKey(String value) {
+            java.lang.Long key;
+            key = Long.valueOf(value);
+            return key;
+        }
+        String getStringKey(java.lang.Long value) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(value);
+            return sb.toString();
+        }
+        @Override     //fixes musics controller converter error
+        public String getAsString(FacesContext facesContext, UIComponent component, Object object) {
+            if (object == null) {
+                return null;
+            }
+            if (object instanceof Musics) {
+                Musics o = (Musics) object;
+                return getStringKey(o.getId());
+            } else {
+                Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, "object {0} is of type {1}; expected type: {2}", new Object[]{object, object.getClass().getName(), Musics.class.getName()});
+                return null;
+            }
+        }
+    }
+    
 }
