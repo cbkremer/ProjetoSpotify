@@ -47,13 +47,16 @@ and open the template in the editor.
                                 </f:facet>
                                 <h:outputText value="#{item.artist}"/>
                             </p:column>
-                            
+                            <f:facet name="footer">
+                                <p:commandButton id="createButton" icon="ui-icon-plus"   value="Incluir" actionListener="#{MusicsController.prepareCreate}" update=":MusicsCreateForm" oncomplete="PF('MusicsCreateDialog').show()"/>
+                                
+                            </f:facet>
                         </p:dataTable>
                     </p:panel>
                 </h:form>
 
                 <ui:include src="Incluir.xhtml"/>
-                <ui:include src="Editar.xhtml"/>
+                
             </ui:define>
         </ui:composition>
 </html>
