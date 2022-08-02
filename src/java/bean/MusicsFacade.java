@@ -19,7 +19,7 @@ public class MusicsFacade extends AbstractFacade<Musics> {
     
     @PersistenceContext(unitName = "ProjetoSpotifyPU")
     private EntityManager em;
-    
+
     @Override
     protected EntityManager getEntityManager() {
         return em;
