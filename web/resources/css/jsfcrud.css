@@ -15,36 +15,34 @@
 .ui-button {
     margin-top: 10px !important;
 }
-/*///////////////////////////////////////////////////////*/
+/*///////////////////////////////////////////////////////                        index*/
 *{
     box-sizing:border-box;
 }
 header{
-    color:white;
+    color:gray;
     font-family:verdana;
     text-align:center;
-    padding-top:53px;
+    padding-top:0px;
     padding-bottom:10px;
+    margin-right:20%;
 }
 body{
     margin:0;
     padding:0;
-    font-family:verdana;
-    background-color:black;
+    font-family:arial;
+    font-weight: bold;
+    background-color:gray;
 }
 nav{
+    margin-bottom: 100px;
     position:fixed;
     width:100%;
-    z-index:9999;
-    font-size:20px;
+    z-index:8;
+    /*font-size:20px;*/
     font-family:verdana;
     background-color:black;
-}
-ul.topnav li.direita{
-    float:right;
-    color:red;
-    background-color:red;
-    font-family:verdana;
+    
 }
 ul.topnav{
     list-style:none;
@@ -58,10 +56,28 @@ ul.topnav li{
 ul.topnav li a {
     display:block;
     text-decoration:none;
-    color:white;
+    color:gray;
     padding:16px 16px;
     text-align:center;
 }
 ul.topnav li a:hover{
-    background-color:green;
+    color:white;
+    font-size:17px;
+}
+/*/////////////////////////////////// side menu*/
+#side_menu{
+    padding-top: 50px;
+    padding-bottom: 100%;
+    padding-left: 10px;
+    background-color:black;
+    width:20%;
+    position:fixed;
+}
+#side_menu a{
+    text-decoration: none;
+    color:gray;
+    margin-left:20px;
+}
+#side_menu a:hover{
+    color:white;
 }
