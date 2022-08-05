@@ -22,21 +22,22 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author stefanini
  */
 @Entity
-@Table(name = "Musics")
+@Table(name = "musics")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Musics.findAll", query = "SELECT u FROM Musics u"),
+    @NamedQuery(name = "Musics.findByGenre", query = "SELECT u FROM Musics u WHERE u.genre = :genre"),
     @NamedQuery(name = "Musics.findById", query = "SELECT u FROM Musics u WHERE u.id = :id"),
     @NamedQuery(name = "Musics.findByName", query = "SELECT u FROM Musics u WHERE u.name = :name"),
     @NamedQuery(name = "Musics.findByArtist", query = "SELECT u FROM Musics u WHERE u.artist = :artist")})
 public class Musics implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    /*@Basic(optional = false)
+    @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 2147483647)
-    @Column(name = "description")
-    private String description;*/
+    @Column(name = "genre")
+    private String genre;
     @Id
     @Basic(optional = false)
     @NotNull
@@ -52,31 +53,31 @@ public class Musics implements Serializable {
     @Size(min = 1, max = 2147483647)
     @Column(name = "artist")
     private String artist;
+    
 
     public Musics() {
-        System.out.println("Musics class");
     }
 
     public Musics(Long id) {
         this.id = id;
     }
 
-    public Musics(Long id, String name, String artist) {
+    public Musics(Long id, String genre, String name, String artist) {
         this.id = id;
+        this.genre = genre;
         this.name = name;
         this.artist = artist;
     }
 
-    /*public String getDescription() {
-        return description;
+    public String getGenre() {
+        return genre;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }*/
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
 
     public Long getId() {
-        System.out.println("++++++++++++++++++++++++++++++++++++++++++: "+id);
         return id;
     }
 

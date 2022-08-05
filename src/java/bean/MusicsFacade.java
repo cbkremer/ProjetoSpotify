@@ -12,11 +12,11 @@ import javax.persistence.PersistenceContext;
 
 /**
  *
- * @author cbkremer
+ * @author stefanini
  */
 @Stateless
 public class MusicsFacade extends AbstractFacade<Musics> {
-    
+
     @PersistenceContext(unitName = "ProjetoSpotifyPU")
     private EntityManager em;
 
@@ -28,4 +28,5 @@ public class MusicsFacade extends AbstractFacade<Musics> {
     public MusicsFacade() {
         super(Musics.class);
     }
+    
 }

@@ -8,21 +8,24 @@
 
     <ui:composition>
 
-        <p:dialog id="MusicsCreateDlg" widgetVar="MusicsCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="Incluir Musica">
-            <h:form id="MusicsCreateForm">
+        <p:dialog id="MusicsEditDlg" widgetVar="MusicsEditDialog" modal="true" resizable="false" appendTo="@(body)" header="Alterar Universidades">
+            <h:form id="MusicsEditForm">
                 <h:panelGroup id="display">
-                    <p:panelGrid columns="2">
+                    <p:panelGrid columns="2" rendered="#{musicsController.selected != null}">
                         <p:outputLabel value="Código" for="id" />
                         <p:inputText id="id" value="#{musicsController.selected.id}" title="Código}" required="true" requiredMessage="Código Obrigatório"/>
                        
                         <p:outputLabel value="Nome" for="name" />
                         <p:inputText id="name" value="#{musicsController.selected.name}" title="Nome" required="true" requiredMessage="Nome Obrigatório"/>
                         
-                        <p:outputLabel value="Artista" for="artist" />
+                        <p:outputLabel value="Gênero" for="genre" />
+                        <p:inputText id="genre" value="#{musicsController.selected.genre}" title="Gênero" required="true" requiredMessage="Gênero Obrigatório"/>
+                        
+                        <p:outputLabel value="Artist" for="artist" />
                         <p:inputText id="artist" value="#{musicsController.selected.artist}" title="Artista" required="true" requiredMessage="Artista Obrigatório"/>
                     </p:panelGrid>
-                    <p:commandButton actionListener="#{musicsController.create}" value="Salvar" update="display,:MusicsListForm:datalist,:growl" oncomplete="handleSubmit(args,'MusicsCreateDialog');"/>
-                    <p:commandButton value="Cancelar" onclick="MusicsCreateDialog.hide()"/>
+                    <p:commandButton actionListener="#{musicsController.update}" value="Salvar" update="display,:MusicsListForm:datalist,:growl" oncomplete="handleSubmit(args, 'MusicsEditDialog');"/>
+                    <p:commandButton value="Cancelar" onclick="musicsEditDialog.hide()"/>
                 </h:panelGroup>
             </h:form>
         </p:dialog>

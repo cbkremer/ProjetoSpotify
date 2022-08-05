@@ -5,10 +5,7 @@
  */
 package TESTE;
 
-import bean.AbstractFacade;
-import bean.MusicsFacade;
 import controller.MusicsController;
-import dao.Musics;
 
 /**
  *
@@ -16,10 +13,7 @@ import dao.Musics;
  */
 public class Teste {
     public static void main(String[] args){
-        Musics musics = new Musics();
-        MusicsController mc = new MusicsController();
-        System.out.println(mc.getItemsAvailableSelectMany());
-        
-        
+        MusicsController uc = new MusicsController();
+        uc.getItems();
     }
 }
