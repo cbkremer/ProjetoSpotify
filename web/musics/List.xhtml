@@ -6,17 +6,37 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 
-    
-
- 
-            
-                    <p:dataTable id="datalist" value="#{musicsController.items}" var="item"
+    <h:head>
+        <title>Projeto Spotify</title>
+	<h:outputStylesheet name="css/jsfcrud.css"/>
+    </h:head>
+    <h:body>
+        <header>
+            <nav>
+                <ul class="topnav">
+                    <li><h:link outcome="List.xhtml" value="Entrar"/></li>
+                    <li><h:link outcome="List.xhtml" value="Inscrever-se"/></li>
+                    <li id="header_separator_line"><h:link outcome="List.xhtml" value="|"/></li>
+                    <li><h:link outcome="List.xhtml" value="Baixar"/></li>
+                    <li><h:link outcome="List.xhtml" value="Suporte"/></li>
+                    <li><h:link outcome="List.xhtml" value="Premium"/></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <section id="side_menu">
+            <a href="List.xhtml" style="color:white;">Início</a><br/><br/>
+            <a href="List.xhtml">Buscar</a><br/><br/>
+            <a href="List.xhtml">Sua biblioteca</a><br/><br/>
+        </section>
+        
+        <section id="content">
+            <div id="music_list">
+                        <p:dataTable id="datalist" value="#{musicsController.items}" var="item"
                                  selectionMode="single" selection="#{musicsController.selected}"
-                                 paginator="true"
+                                 paginator="false"
                                  rowKey="#{item.id}"
                                  >
-
-
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="Código"/>
@@ -42,9 +62,8 @@
                             </f:facet>
                             <h:outputText value="#{item.artist}"/>
                         </p:column>
-                        
                     </p:dataTable>
-            
-   
-
+                </div>
+        </section>
+    </h:body>
 </html>
