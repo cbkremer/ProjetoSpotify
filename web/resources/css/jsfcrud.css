@@ -24,7 +24,7 @@ header{
     font-family:verdana;
     text-align:center;
     padding-top:0px;
-    padding-bottom:10px;
+    padding-bottom:0px;
     margin-right:20%;
 }
 body{
@@ -32,16 +32,16 @@ body{
     padding:0;
     font-family:arial;
     font-weight: bold;
-    background-color:gray;
+    background-color:rgb(29,29,29);
 }
 nav{
     margin-bottom: 100px;
     position:fixed;
     width:100%;
     z-index:9999;
-    /*font-size:20px;*/
+    font-size:15px;
     font-family:verdana;
-    background-color:black;
+    background-color:rgb(15,15,15);
     
 }
 ul.topnav{
@@ -57,7 +57,7 @@ ul.topnav li a {
     display:block;
     text-decoration:none;
     color:gray;
-    padding:16px 16px;
+    padding:22px 20px;
     text-align:center;
 }
 ul.topnav li a:hover{
@@ -66,11 +66,11 @@ ul.topnav li a:hover{
 }
 /*/////////////////////////////////// side menu*/
 #side_menu{
-    padding-top: 50px;
+    padding-top: 100px;
     padding-bottom: 100%;
     padding-left: 10px;
     background-color:black;
-    width:20%;
+    width:17%;
     position:fixed;
     z-index: 9999;
 }
@@ -84,8 +84,8 @@ ul.topnav li a:hover{
 }
 /*/////////////////////////////////// sua biblioteca*/
 #content{
-    margin-left: 20%;
-    margin-top: 60px;
+    margin-left: 17%;
+    padding-top: 60px;
 }
 #music_list{
     

@@ -31,10 +31,10 @@
         </section>
         
         <section id="content">
-            <div id="music_list">
-                        <p:dataTable id="datalist" value="#{musicsController.items}" var="item"
+            <div>
+                        <p:dataTable value="#{musicsController.items}" var="item"
                                  selectionMode="single" selection="#{musicsController.selected}"
-                                 paginator="false"
+                                 paginator="true"
                                  rowKey="#{item.id}"
                                  >
                         <p:column>
