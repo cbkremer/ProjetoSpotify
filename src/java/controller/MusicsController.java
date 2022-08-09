@@ -57,10 +57,21 @@ public class MusicsController implements Serializable {
 
     public void create() {
         //validar se a musica ja nao existe na playlist
-        
-        persist(PersistAction.CREATE, ResourceBundle.getBundle("/Bundle").getString("MusicsCreated"));
-        if (!JsfUtil.isValidationFailed()) {
-            items = null;    // Invalidate list of items to trigger re-query.
+        boolean valid = true;
+        List<Musics> validate = getFacade().findAll();
+        for (Musics musics : validate) {
+            if(musics.getName().equals(selected.getName())&&musics.getArtist().equals(selected.getArtist())){
+                valid = false;
+            }
+        }
+        if(!valid){
+            JsfUtil.addErrorMessage(ResourceBundle.getBundle("/Bundle").getString("NameArtistValidationErrorOcurred"));
+        }
+        else{
+            persist(PersistAction.CREATE, ResourceBundle.getBundle("/Bundle").getString("MusicsCreated"));
+            if (!JsfUtil.isValidationFailed()) {
+                items = null;    // Invalidate list of items to trigger re-query.
+            }
         }
     }
 

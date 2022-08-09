@@ -7,6 +7,8 @@ package TESTE;
 
 import controller.MusicsController;
 import dao.Musics;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -14,7 +16,9 @@ import dao.Musics;
  */
 public class Teste {
     public static void main(String[] args){
-        Musics musics = new Musics();
-        System.out.println();
+        
+        List musics = new ArrayList();
+        MusicsController mc = new MusicsController();
+        
     }
 }
