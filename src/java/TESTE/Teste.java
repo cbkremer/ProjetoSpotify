@@ -6,6 +6,7 @@
 package TESTE;
 
 import controller.MusicsController;
+import dao.Musics;
 
 /**
  *
@@ -13,7 +14,7 @@ import controller.MusicsController;
  */
 public class Teste {
     public static void main(String[] args){
-        MusicsController uc = new MusicsController();
-        uc.getItems();
+        Musics musics = new Musics();
+        System.out.println();
     }
 }
