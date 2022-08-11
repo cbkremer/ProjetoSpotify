@@ -12,7 +12,7 @@ import javax.persistence.PersistenceContext;
 
 /**
  *
- * @author stefanini
+ * @author Carlos Kremer
  */
 @Stateless
 public class MusicsFacade extends AbstractFacade<Musics> {
